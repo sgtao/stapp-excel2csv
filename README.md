@@ -83,5 +83,23 @@ git push -u origin main
   - タイトル、概要を変更する
   - LICENSEを変更する場合は、`README.md`の下段の表記と`LICENSE`ファイルを変更する
 
+### 03．`src/pages`フォルダ配下にアプリケーション追加
+- 例）`src/pages/11_csv_viewer.py`を作成
+  - `task start`・`task check-format`などで確認
+```py
+import streamlit as st
+import pandas as pd
+
+
+def csv_viewer():
+    st.title("CSVファイルアップローダー")
+
+    ...
+
+# if __name__ == '__main__':
+#     csv_viewer()
+csv_viewer()
+```
+
 ## License
 Apache-2.0 license
