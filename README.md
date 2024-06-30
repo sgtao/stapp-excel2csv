@@ -1,5 +1,5 @@
-# stpyapp-template
-[streamlit](https://streamlit.io/)のアプリ開発するためのテンプレートを作ってみる
+# stapp-excel2csv
+[streamlit](https://streamlit.io/)で、Webページ上でCSVをExcelに変換する機能を提供する
 
 ## コンテンツ
 - サンプルコード（[streamlit-example](https://github.com/streamlit/streamlit-example)）を追加
@@ -66,6 +66,22 @@ task test-repo
 ```
 
 
+## 他プロジェクトでの利用手順
+### 01. リポジトリURLの変更
+- `git-clone`したあと、`git-remote`でoriginを変更する
+```sh
+git clone https://github.com/sgtao/stpyapp-template.git stapp-excel2csv
+cd stapp-excel2csv
+# git remote add origin https://github.com/sgtao/stapp-excel2csv.git
+git remote set-url origin https://github.com/sgtao/stapp-excel2csv.git
+git branch -M main
+git push -u origin main
+```
+
+### 02．`README.md`・`LICENSE`ファイルの変更
+- `README.md`の変更：
+  - タイトル、概要を変更する
+  - LICENSEを変更する場合は、`README.md`の下段の表記と`LICENSE`ファイルを変更する
+
 ## License
 Apache-2.0 license
-
