@@ -1,9 +1,6 @@
 # stapp-excel2csv
 [streamlit](https://streamlit.io/)で、Webページ上でCSVをExcelに変換する機能を提供する
 
-## コンテンツ
-- サンプルコード（[streamlit-example](https://github.com/streamlit/streamlit-example)）を追加
-
 ## Usage
 - [poetry cli](https://cocoatomo.github.io/poetry-ja/cli/)を利用する
 
@@ -22,7 +19,7 @@ test-cov   pytest tests --cov --cov-branch -svx
 test-repo  pytest tests --cov --cov-report=html
 format     black --line-length 79 src
 lint       flake8 src
-check-lint black整形とflake8チェックを実行
+check-format black整形とflake8チェックを実行
 ```
 
 ### Start as local service
@@ -39,7 +36,7 @@ task start
 ```sh
 # task format
 # task lint
-task check-lint
+task check-format
 ```
 
 
