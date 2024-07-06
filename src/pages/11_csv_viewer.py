@@ -7,7 +7,8 @@ def csv_viewer():
 
     # ファイルアップローダーを作成
     uploaded_file = st.file_uploader(
-        "CSVファイルを選択してください", type=["csv"]
+        "（UTF-8文字コードで保存した）CSVファイルを選択してください",
+        type=["csv"],
     )
 
     if uploaded_file is not None:

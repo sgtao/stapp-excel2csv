@@ -63,42 +63,6 @@ task test-repo
 ```
 
 
-## 他プロジェクトでの利用手順
-### 01. リポジトリURLの変更
-- `git-clone`したあと、`git-remote`でoriginを変更する
-```sh
-git clone https://github.com/sgtao/stpyapp-template.git stapp-excel2csv
-cd stapp-excel2csv
-# git remote add origin https://github.com/sgtao/stapp-excel2csv.git
-git remote set-url origin https://github.com/sgtao/stapp-excel2csv.git
-git branch -M main
-git push -u origin main
-```
-
-### 02．`README.md`・`LICENSE`ファイルの変更
-- `README.md`の変更：
-  - タイトル、概要を変更する
-  - LICENSEを変更する場合は、`README.md`の下段の表記と`LICENSE`ファイルを変更する
-
-### 03．`src/pages`フォルダ配下にアプリケーション追加
-- 例）`src/pages/11_csv_viewer.py`を作成
-  - `task start`・`task check-format`などで確認
-```py
-import streamlit as st
-import pandas as pd
-
-
-def csv_viewer():
-    st.title("CSVファイルアップローダー")
-
-    ...
-
-# if __name__ == '__main__':
-#     csv_viewer()
-csv_viewer()
-```
-
-
 ## 使用ライブラリ
 
 このプロジェクトは以下のオープンソースライブラリを使用しています：
