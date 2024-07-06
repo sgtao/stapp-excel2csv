@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import openpyxl
 
+from components.csv_downloader import csv_downloader
+
 
 def excel_sheets():
     st.title("Excelファイルアップローダー")
@@ -36,6 +38,10 @@ def excel_sheets():
                 # データフレームを表示
                 st.write(f"## {selected_sheet}のデータ")
                 st.dataframe(df)
+
+                # ダウンロードボタンの作成
+                if st.button("CSVダウンロード"):
+                    csv_downloader(df, selected_sheet)
 
         except Exception as e:
             st.error(f"エラーが発生しました: {e}")
