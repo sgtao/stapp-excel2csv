@@ -40,7 +40,7 @@ def excel_sheets():
                 st.dataframe(df)
 
                 # ダウンロードボタンの作成
-                if st.button("CSVダウンロード"):
+                with st.expander("Download to CSV file?"):
                     csv_downloader(df, selected_sheet)
 
         except Exception as e:
