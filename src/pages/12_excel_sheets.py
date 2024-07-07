@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import openpyxl
@@ -15,6 +16,11 @@ def excel_sheets():
 
     if uploaded_file is not None:
         try:
+            # print(uploaded_file.name)
+            excel_filename = uploaded_file.name
+            # 拡張子を除去したファイル名を取得
+            filename_without_extension = os.path.splitext(excel_filename)[0]
+
             # Excelファイルを読み込む
             wb = openpyxl.load_workbook(uploaded_file)
 
@@ -22,7 +28,8 @@ def excel_sheets():
             sheet_names = wb.sheetnames
 
             # シート名を表示
-            st.write("## アップロードされたExcelファイルのシート一覧")
+            # st.write("## アップロードされたExcelファイルのシート一覧")
+            st.subheader(f"ファイル：{excel_filename} のシート一覧")
             for i, sheet_name in enumerate(sheet_names, 1):
                 st.write(f"{i}. {sheet_name}")
 
@@ -41,7 +48,14 @@ def excel_sheets():
 
                 # ダウンロードボタンの作成
                 with st.expander("Download to CSV file?"):
-                    csv_downloader(df, selected_sheet)
+                    download_filename = (
+                        filename_without_extension
+                        + "_"
+                        + selected_sheet
+                        + ".csv"
+                    )
+                    st.write(f"Filename is {download_filename}")
+                    csv_downloader(df, download_filename)
 
         except Exception as e:
             st.error(f"エラーが発生しました: {e}")
