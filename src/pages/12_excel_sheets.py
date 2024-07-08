@@ -7,7 +7,7 @@ from components.csv_downloader import csv_downloader
 
 
 def excel_sheets():
-    st.title("Excelファイルアップローダー")
+    st.title("Excel to CSV App")
 
     # ファイルアップローダーを作成
     uploaded_file = st.file_uploader(
