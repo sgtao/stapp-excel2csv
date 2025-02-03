@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "stpyapp-template"
+name = "stapp-excel2csv"
 version = "0.1.0"
-description = "streamlit project template for quick start"
+description = "Webページ上でExcel をCSV に変換する機能を提供する"
 authors = ["Shogo Ogami <sg.tao.so@gmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
@@ -11,7 +11,6 @@ python = "^3.11"
 streamlit = "^1.35.0"
 pandas = "^2.2.2"
 openpyxl = "^3.1.5"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
@@ -25,10 +24,22 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.taskipy.tasks]
-start = "streamlit run src/main.py"
+# basic commands
+run  = "streamlit run src/main.py"
 test = "pytest tests"
 test-cov = "pytest tests --cov --cov-branch -svx"
-test-repo = "pytest tests --cov --cov-report=html"
+test-report = "pytest tests --cov --cov-report=html"
+
+# for code quality
 format = "black --line-length 79 src"
 lint = "flake8 src"
-check-format = { cmd = "task format && task lint", help = "black整形とflake8チェックを実行" }
+check-format = { cmd = "task format && task lint", help = "run lint check after format" }
+
+# for package dependencies
+export-requirements = { cmd = "poetry export -f requirements.txt -o requirements.txt --without-hashes", help = "export requirements.txt file" }
+export-req-with-dev = { cmd = "poetry export -f requirements.txt -o requirements-dev.txt --without-hashes --with dev", help = "export requirements-dev.txt file" }
+
+# Docker commands
+docker-build = { cmd = "docker build -t my-stapp .", help = "build Docker image" }
+docker-run = { cmd = "docker run -p 8051:8051 my-stapp", help = "run Docker container" }
+
